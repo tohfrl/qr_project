@@ -19,6 +19,8 @@ def redirect_to_target(short_code):
         # Toon een foutmelding als de code niet bestaat
         return "URL niet gevonden", 404
 
-if __name__ == '__main__':
-    # Start de Flask-server
-    app.run(debug=True)
+import os
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))  # Gebruik de "PORT" omgeving of standaard 5000
+    app.run(host="0.0.0.0", port=port, debug=True)
